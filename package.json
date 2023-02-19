@@ -1,0 +1,27 @@
+{
+  "name": "u5js",
+  "version": "0.1.0",
+  "description": "u5.js is a minimalist and lightweight canvas animation library",
+  "author": "Lionel Ringenbach <lionel@ucodia.space> (https://ucodia.space/)",
+  "keywords": [
+    "creative coding",
+    "digital media",
+    "canvas"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ucodia/u5.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ucodia/u5.js/issues"
+  },
+  "homepage": "https://github.com/Ucodia/u5.js#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.4.3"
+  }
+}
