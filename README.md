@@ -29,6 +29,8 @@ I have been using p5.js since 2016 and it is all over my website [ucodia.space](
 - `frameCount`
 - `PI`
 - `TWO_PI`
+- `width`
+- `height`
 
 ### Plan to support
 
@@ -36,6 +38,7 @@ I have been using p5.js since 2016 and it is all over my website [ucodia.space](
 - `mouseX / pmouseX / mouseY / pmouseY`
 - `translate`
 - `scale`
+- `windowResized`
 
 ### No plan to support
 

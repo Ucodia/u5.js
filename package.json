@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/Ucodia/u5.js#readme",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
     "test": "jest"
   },
