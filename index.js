@@ -106,10 +106,15 @@ export default function u5(sketch, element) {
   // window events
 
   const handleResize = () => {
+    const fillStyle = this.context.fillStyle;
+    const strokeStyle = this.context.strokeStyle;
     this.windowWidth = window.innerWidth;
     this.windowHeight = window.innerHeight;
+
     if (this.windowResized) {
       this.windowResized();
+      this.fill(fillStyle);
+      this.stroke(strokeStyle);
     }
   };
   window.addEventListener("resize", handleResize);
