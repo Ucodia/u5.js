@@ -26,10 +26,16 @@ export default function u5(sketch, element) {
   };
 
   this.resizeCanvas = function (width, height) {
+    const fillStyle = this.context.fillStyle;
+    const strokeStyle = this.context.strokeStyle;
+
     this.width = width;
     this.height = height;
     this.canvas.width = this.width;
     this.canvas.height = this.height;
+
+    this.fill(fillStyle);
+    this.stroke(strokeStyle);
   };
 
   // drawing
@@ -108,15 +114,11 @@ export default function u5(sketch, element) {
   // window events
 
   const handleResize = () => {
-    const fillStyle = this.context.fillStyle;
-    const strokeStyle = this.context.strokeStyle;
     this.windowWidth = window.innerWidth;
     this.windowHeight = window.innerHeight;
 
     if (this.windowResized) {
       this.windowResized();
-      this.fill(fillStyle);
-      this.stroke(strokeStyle);
     }
   };
   window.addEventListener("resize", handleResize);
