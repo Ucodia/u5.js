@@ -1,4 +1,4 @@
-export default function (sketch, element) {
+export default function u5(sketch, element) {
   sketch(this);
 
   // default settings
