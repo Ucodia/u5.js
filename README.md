@@ -1,10 +1,14 @@
 # u5.js
 
-u5.js is a minimalist and lightweight canvas animation library. Its API is essentially a stripped down version of the popular [p5.js](https://github.com/processing/p5.js) library which features only what I needed for my own projects.
+u5.js is a minimalist and lightweight canvas animation library. Its API is essentially a stripped down version of the popular [p5.js](https://github.com/processing/p5.js) library which focuses on 2D canvas animation.
 
 ## Why does this library exists?
 
-I have been using p5.js since 2016 and it is all over my website [ucodia.space](https://ucodia.space). Since then the JavaScript ecosystem has radically changed but the p5.js did not follow along. As a result the library is now over 800KB minified which is really heavy if all you need is to animate simple primitives on a HTML canvas. There is an [exisiting issue](https://github.com/processing/p5.js/issues/5740) in the p5.js GitHub repository, though it seems the way the library is built makes it impossible to enable tree-shaking while remaining backward compatible.
+I have been using and loving p5.js since 2016, it is all over my website [ucodia.space](https://ucodia.space), including the home page. Though the p5.js library was never built to be tree-shakeable and is now over 800KB, which is very large if all you need is to animate simple primitives.
+
+There is an [exisiting issue](https://github.com/processing/p5.js/issues/5740) in the p5.js GitHub repository, though it seems the way the library is built makes it impossible to enable tree-shaking while remaining backward compatible.
+
+As such I have decided to give a try at building a library with the same API which focuses only on 2D canvas animation.
 
 ## Features
 
@@ -43,7 +47,10 @@ I have been using p5.js since 2016 and it is all over my website [ucodia.space](
 ### No plan to support
 
 - Global instance mode
-- `colorMode()`
+- 3D and WebGL modes
+- DOM utilities
+- Sound utilities
+- `color()` and `colorMode()`
 
 ### Planned new features
 
