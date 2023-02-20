@@ -1,3 +1,5 @@
+[![npm version](https://badge.fury.io/js/u5js.svg)](https://badge.fury.io/js/u5js)
+
 # u5.js
 
 u5.js is a minimalist and lightweight canvas animation library. Its API is essentially a stripped down version of the popular [p5.js](https://github.com/processing/p5.js) library which focuses on 2D canvas animation.
