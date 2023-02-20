@@ -39,8 +39,10 @@ export default function u5(sketch, element) {
   };
 
   this.background = function (color) {
+    const fillStyle = this.context.fillStyle;
     this.context.fillStyle = color;
     this.context.fillRect(0, 0, this.width, this.height);
+    this.fill(fillStyle);
   };
 
   this.stroke = function (color) {
