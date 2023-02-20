@@ -8,6 +8,8 @@ export default function (sketch, element) {
   this.context = null;
   this.width = 0;
   this.height = 0;
+  this.windowWidth = window.innerWidth;
+  this.windowHeight = window.innerHeight;
   this.fps = 60;
   this.frameCount = 0;
 
@@ -23,10 +25,11 @@ export default function (sketch, element) {
     this.container.append(this.canvas);
   };
 
-  this.remove = function () {
-    if (this.canvas) {
-      this.canvas.remove();
-    }
+  this.resizeCanvas = function (width, height) {
+    this.width = width;
+    this.height = height;
+    this.canvas.width = this.width;
+    this.canvas.height = this.height;
   };
 
   // drawing
@@ -88,8 +91,8 @@ export default function (sketch, element) {
 
   // math
 
+  this.HALF_PI = Math.PI / 2;
   this.PI = Math.PI;
-
   this.TWO_PI = Math.PI * 2;
 
   this.map = function (n, start1, stop1, start2, stop2) {
@@ -98,6 +101,24 @@ export default function (sketch, element) {
 
   this.constrain = function (n, low, high) {
     return Math.min(Math.max(n, low), high);
+  };
+
+  // window events
+
+  const handleResize = () => {
+    this.windowWidth = window.innerWidth;
+    this.windowHeight = window.innerHeight;
+    if (this.windowResized) {
+      this.windowResized();
+    }
+  };
+  window.addEventListener("resize", handleResize);
+
+  this.remove = function () {
+    if (this.canvas) {
+      this.canvas.remove();
+      window.removeEventListener("resize", handleResize);
+    }
   };
 
   // animation

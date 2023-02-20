@@ -16,6 +16,8 @@ As such I have decided to give a try at building a library with the same API whi
 
 - Instance mode with `new u5(sketch, element)`;
 - `createCanvas()`
+- `resizeCanvas()`
+- `windowResized()`
 - `remove()`
 - `clear()`
 - `background()`
@@ -31,18 +33,19 @@ As such I have decided to give a try at building a library with the same API whi
 - `constrain()`
 - `frameRate()`
 - `frameCount`
-- `PI`
-- `TWO_PI`
+- `HALF_PI` / `PI` / `TWO_PI`
 - `width`
 - `height`
+- `windowWidth`
+- `windowHeight`
 
 ### Plan to support
 
 - `noLoop()`
-- `mouseX / pmouseX / mouseY / pmouseY`
+- `mouseX` / `pmouseX` / `mouseY` / `pmouseY`
 - `translate`
 - `scale`
-- `windowResized`
+- `devicePixelRatio`
 
 ### No plan to support
 
