@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="container"></div>
+    <script type="module">
+      import u5 from "../../index.js";
+
+      const example = (sketch) => {
+        let y = 100;
+
+        sketch.setup = function () {
+          sketch.createCanvas(720, 400);
+          sketch.stroke("white");
+          sketch.frameRate(30);
+        };
+
+        sketch.draw = function () {
+          sketch.background("black");
+          y = y - 1;
+          if (y < 0) {
+            y = sketch.height;
+          }
+          sketch.line(0, y, sketch.width, y);
+        };
+      };
+
+      new u5(example, document.getElementById("container"));
+    </script>
+  </body>
+</html>

@@ -66,23 +66,23 @@ Here is an equivalent to [p5.js setup and draw example](https://p5js.org/example
 
 ```
 const example = (sketch) => {
-    let y = 100;
+  let y = 100;
 
-    sketch.setup = function() {
-        sketch.createCanvas(720, 400);
-        sketch.stroke(255);
-        sketch.frameRate(30);
-    }
+  sketch.setup = function () {
+    sketch.createCanvas(720, 400);
+    sketch.stroke("white");
+    sketch.frameRate(30);
+  };
 
-    sketch.draw = function() {
-        sketch.background(0);
-        y = y - 1;
-        if (y < 0) {
-            y = height;
-        }
-        line(0, y, width, y);
+  sketch.draw = function () {
+    sketch.background("black");
+    y = y - 1;
+    if (y < 0) {
+    y = sketch.height;
     }
-}
+    sketch.line(0, y, sketch.width, y);
+  };
+};
 
 new u5(example, document.getElementById("container"));
 ```
