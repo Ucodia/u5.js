@@ -1,6 +1,10 @@
 export default function u5(sketch, element) {
   sketch(this);
 
+  // internal state
+
+  let hasMouseMoved = false;
+
   // default settings
 
   this.container = element;
@@ -10,7 +14,6 @@ export default function u5(sketch, element) {
   this.height = 0;
   this.windowWidth = window.innerWidth;
   this.windowHeight = window.innerHeight;
-  this.hasMouseMoved = false;
   this.mouseX = 0;
   this.pmouseX = 0;
   this.mouseY = 0;
@@ -146,8 +149,8 @@ export default function u5(sketch, element) {
     this.mouseX = e.clientX - rect.left;
     this.mouseY = e.clientY - rect.top;
 
-    if (!this.hasMouseMoved) {
-      this.hasMouseMoved = true;
+    if (!hasMouseMoved) {
+      hasMouseMoved = true;
       this.pmouseX = this.mouseX;
       this.pmouseY = this.mouseY;
     }
