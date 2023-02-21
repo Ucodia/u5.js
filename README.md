@@ -6,7 +6,7 @@ u5.js is a minimalist and lightweight canvas animation library. Its API is essen
 
 ## Why does this library exists?
 
-I have been using and loving p5.js since 2016, it is all over my website [ucodia.space](https://ucodia.space), including the home page. Though the p5.js library was never built to be tree-shakeable and is now over 800KB, which is very large if all you need is to animate simple primitives.
+I have been using and loving p5.js since 2014, it is all over my website [ucodia.space](https://ucodia.space), including the home page. Though the p5.js library was never built to be tree-shakeable and is now over 800KB, which is very large if all you need is to animate simple primitives.
 
 There is an [exisiting issue](https://github.com/processing/p5.js/issues/5740) in the p5.js GitHub repository, though it seems the way the library is built makes it impossible to enable tree-shaking while remaining backward compatible.
 
