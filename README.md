@@ -20,6 +20,7 @@ As such I have decided to give a try at building a library with the same API whi
 - `createCanvas()`
 - `resizeCanvas()`
 - `windowResized()`
+- `mouseMoved()`
 - `remove()`
 - `clear()`
 - `background()`
@@ -40,11 +41,11 @@ As such I have decided to give a try at building a library with the same API whi
 - `height`
 - `windowWidth`
 - `windowHeight`
+- `mouseX` / `pmouseX` / `mouseY` / `pmouseY`
 
 ### Plan to support
 
 - `noLoop()`
-- `mouseX` / `pmouseX` / `mouseY` / `pmouseY`
 - `translate`
 - `scale`
 - `devicePixelRatio`
