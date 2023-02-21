@@ -17,6 +17,7 @@ export default function u5(sketch, element) {
   this.pmouseY = 0;
   this.fps = 60;
   this.frameCount = 0;
+  this.deltaTime = 0;
 
   // DOM
 
@@ -80,12 +81,20 @@ export default function u5(sketch, element) {
     this.context.strokeRect(x, y, w, h);
   };
 
+  this.square = function (x, y, w) {
+    this.rect(x, y, w, w);
+  };
+
   this.ellipse = function (x, y, rx, ry) {
     ry = ry || rx;
     this.context.beginPath();
     this.context.ellipse(x, y, rx, ry, 0, 0, 2 * Math.PI);
     this.context.fill();
     this.context.stroke();
+  };
+
+  this.circle = function (x, y, r) {
+    this.ellipse(x, y, r, r);
   };
 
   this.line = function (x1, y1, x2, y2) {
@@ -107,9 +116,11 @@ export default function u5(sketch, element) {
 
   // math
 
+  this.QUARTER_PI = Math.PI / 4;
   this.HALF_PI = Math.PI / 2;
   this.PI = Math.PI;
   this.TWO_PI = Math.PI * 2;
+  this.TAU = this.TWO_PI;
 
   this.map = function (n, start1, stop1, start2, stop2) {
     return ((n - start1) / (stop1 - start1)) * (stop2 - start2) + start2;
@@ -168,10 +179,10 @@ export default function u5(sketch, element) {
   const animate = () => {
     window.requestAnimationFrame(animate);
     const now = performance.now();
-    const deltaTime = now - then;
+    this.deltaTime = now - then;
     const interval = 1000 / this.fps;
-    if (deltaTime > interval) {
-      then = now - (deltaTime % interval);
+    if (this.deltaTime > interval) {
+      then = now - (this.deltaTime % interval);
       this.frameCount++;
       this.draw();
       this.pmouseX = this.mouseX;

@@ -12,53 +12,71 @@ There is an [exisiting issue](https://github.com/processing/p5.js/issues/5740) i
 
 As such I have decided to give a try at building a library with the same API which focuses only on 2D canvas animation.
 
-## Features
+## Feature support
 
-### Supported
+### Environment
 
-- Instance mode with `new u5(sketch, element)`;
-- `createCanvas()`
-- `resizeCanvas()`
-- `windowResized()`
-- `mouseMoved()`
-- `remove()`
-- `clear()`
-- `background()`
-- `stroke()`
-- `noStroke()`
-- `fill()`
-- `noFill()`
-- `rect()`
-- `ellipse()`
-- `line()`
-- `triangle()`
-- `map()`
-- `constrain()`
-- `frameRate()`
 - `frameCount`
-- `HALF_PI` / `PI` / `TWO_PI`
-- `width`
-- `height`
+- `deltaTime`
+- `frameRate()`
 - `windowWidth`
 - `windowHeight`
-- `mouseX` / `pmouseX` / `mouseY` / `pmouseY`
+- `windowResized()`
+- `width`
+- `height`
 
-### Plan to support
+### Color - Setting
 
-- `noLoop()`
-- `translate`
-- `scale`
-- `devicePixelRatio`
+- `background()`
+- `clear()`
+- `fill()`
+- `noFill()`
+- `noStroke()`
+- `stroke()`
 
-### No plan to support
+### Shape - 2D primitives
 
-- Global instance mode
-- 3D and WebGL modes
-- DOM utilities
-- Sound utilities
-- `color()` and `colorMode()`
+- `circle()`
+- `ellipse()`
+- `line()`
+- `rect()`
+- `square()`
+- `triangle()`
 
-### Planned new features
+### Constants
+
+- `HALF_PI`
+- `PI`
+- `QUARTER_PI`
+- `TAU`
+- `TWO_PI`
+
+### Structure
+
+- `setup()`
+- `draw()`
+- `remove()`
+- `u5()`
+
+### Rendering
+
+- `createCanvas()`
+- `resizeCanvas()`
+
+### Events - Mouse
+
+- `mouseX`
+- `mouseY`
+- `pmouseX`
+- `pmouseY`
+- `mouseMoved()`
+
+### Math
+
+- `map()`
+- `constrain()`
+
+## Planned new features
 
 - Auto-sizing canvas
 - Out of the box support for SVG export (no animation)
