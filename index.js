@@ -113,12 +113,12 @@ export default function u5(sketch, element) {
 
   // window events
 
-  const handleResize = () => {
+  const handleResize = (e) => {
     this.windowWidth = window.innerWidth;
     this.windowHeight = window.innerHeight;
 
-    if (this.windowResized) {
-      this.windowResized();
+    if (typeof this.windowResized === "function") {
+      this.windowResized(e);
     }
   };
   window.addEventListener("resize", handleResize);
