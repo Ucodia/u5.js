@@ -99,16 +99,16 @@ export default function u5(sketch, element) {
     this.rect(x, y, w, w);
   };
 
-  this.ellipse = function (x, y, rx, ry) {
-    ry = ry || rx;
+  this.ellipse = function (x, y, w, h) {
+    h = h || w;
     this.context.beginPath();
-    this.context.ellipse(x, y, rx, ry, 0, 0, 2 * Math.PI);
+    this.context.ellipse(x, y, w / 2, h / 2, 0, 0, 2 * Math.PI);
     this.context.fill();
     this.context.stroke();
   };
 
-  this.circle = function (x, y, r) {
-    this.ellipse(x, y, r, r);
+  this.circle = function (x, y, d) {
+    this.ellipse(x, y, d, d);
   };
 
   this.line = function (x1, y1, x2, y2) {
