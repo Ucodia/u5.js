@@ -33,6 +33,10 @@ export default function u5(sketch, element) {
     this.context = this.canvas.getContext("2d");
     this.container.append(this.canvas);
 
+    // default styling
+    this.fill("white");
+    this.stroke("black");
+
     window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove);
   };
