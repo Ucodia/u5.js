@@ -55,6 +55,7 @@ export default function u5(sketch, element) {
     this.canvas.height = this.height * this.pixelDensity;
     this.canvas.style.width = `${this.width}px`;
     this.canvas.style.height = `${this.height}px`;
+    this.context.scale(this.pixelDensity, this.pixelDensity);
 
     this.fill(fillStyle);
     this.stroke(strokeStyle);
