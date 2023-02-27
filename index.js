@@ -82,6 +82,14 @@ export default function u5(sketch, element) {
     this.stroke("transparent");
   };
 
+  this.strokeWeight = function (weight) {
+    if (weight <= 0) {
+      this.noStroke();
+    } else {
+      this.context.lineWidth = weight;
+    }
+  };
+
   this.fill = function (color) {
     this.context.fillStyle = color;
   };
