@@ -17,6 +17,7 @@ export default function u5(sketch, element) {
   this.windowWidth = window.innerWidth;
   this.windowHeight = window.innerHeight;
   this.pixelDensity = Math.ceil(window.devicePixelRatio) || 1;
+  this.mouseIsPressed = false;
   this.mouseX = 0;
   this.pmouseX = 0;
   this.mouseY = 0;
@@ -45,6 +46,9 @@ export default function u5(sketch, element) {
 
     window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mouseup", handleMouseUp);
+    window.addEventListener("dblclick", handleDoubleClick);
   };
 
   this.resizeCanvas = function (width, height) {
@@ -194,6 +198,28 @@ export default function u5(sketch, element) {
     }
   };
 
+  const handleMouseDown = (e) => {
+    this.mouseIsPressed = true;
+
+    if (typeof this.mousePressed === "function") {
+      this.mousePressed(e);
+    }
+  };
+
+  const handleMouseUp = (e) => {
+    this.mouseIsPressed = false;
+
+    if (typeof this.mouseReleased === "function") {
+      this.mouseReleased(e);
+    }
+  };
+
+  const handleDoubleClick = (e) => {
+    if (typeof this.doubleClicked === "function") {
+      this.doubleClicked(e);
+    }
+  };
+
   this.remove = function () {
     if (!this.canvas) {
       return;
@@ -201,6 +227,9 @@ export default function u5(sketch, element) {
 
     window.removeEventListener("resize", handleResize);
     window.removeEventListener("mousemove", handleMouseMove);
+    window.removeEventListener("mousedown", handleMouseDown);
+    window.removeEventListener("mouseup", handleMouseUp);
+    window.removeEventListener("dblclick", handleDoubleClick);
     this.canvas.remove();
   };
 
