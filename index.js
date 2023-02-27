@@ -4,6 +4,8 @@ export default function u5(sketch, element) {
   // internal state
 
   let hasMouseMoved = false;
+  let hasSetupRun = false;
+  let isLooping = false;
 
   // default settings
 
@@ -59,6 +61,19 @@ export default function u5(sketch, element) {
 
     this.fill(fillStyle);
     this.stroke(strokeStyle);
+  };
+
+  // structure
+
+  this.loop = function () {
+    isLooping = true;
+    if (hasSetupRun) {
+      animate();
+    }
+  };
+
+  this.noLoop = function () {
+    isLooping = false;
   };
 
   // drawing
@@ -195,10 +210,24 @@ export default function u5(sketch, element) {
     this.fps = fps;
   };
 
+  // initialization
+
+  if (typeof this.setup !== "function") {
+    return;
+  }
+  if (typeof this.draw === "function") {
+    isLooping = true;
+  }
+
   this.setup();
+  hasSetupRun = true;
 
   let then = performance.now();
   const animate = () => {
+    if (!isLooping) {
+      return;
+    }
+
     window.requestAnimationFrame(animate);
     const now = performance.now();
     this.deltaTime = now - then;
