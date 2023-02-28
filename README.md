@@ -43,6 +43,10 @@ As such I have decided to give a try at building a library with the same API whi
 - `square()`
 - `triangle()`
 
+### Shape - Attributes
+
+- `strokeWeight()`
+
 ### Constants
 
 - `HALF_PI`
@@ -56,6 +60,8 @@ As such I have decided to give a try at building a library with the same API whi
 - `setup()`
 - `draw()`
 - `remove()`
+- `noLoop()`
+- `loop()`
 - `u5()`
 
 ### Rendering
@@ -69,7 +75,11 @@ As such I have decided to give a try at building a library with the same API whi
 - `mouseY`
 - `pmouseX`
 - `pmouseY`
+- `mouseIsPressed`
 - `mouseMoved()`
+- `mousePressed()`
+- `mouseReleased()`
+- `doubleClicked()`
 
 ### Math
 
