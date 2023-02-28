@@ -6,6 +6,7 @@ export default function u5(sketch, element) {
   let hasMouseMoved = false;
   let hasSetupRun = false;
   let isLooping = false;
+  const pixelDensity = Math.ceil(window.devicePixelRatio) || 1;
 
   // default settings
 
@@ -16,7 +17,6 @@ export default function u5(sketch, element) {
   this.height = 0;
   this.windowWidth = window.innerWidth;
   this.windowHeight = window.innerHeight;
-  this.pixelDensity = Math.ceil(window.devicePixelRatio) || 1;
   this.mouseIsPressed = false;
   this.mouseX = 0;
   this.pmouseX = 0;
@@ -32,12 +32,12 @@ export default function u5(sketch, element) {
     this.width = width;
     this.height = height;
     this.canvas = document.createElement("canvas");
-    this.canvas.width = this.width * this.pixelDensity;
-    this.canvas.height = this.height * this.pixelDensity;
+    this.canvas.width = this.width * pixelDensity;
+    this.canvas.height = this.height * pixelDensity;
     this.canvas.style.width = `${this.width}px`;
     this.canvas.style.height = `${this.height}px`;
     this.context = this.canvas.getContext("2d");
-    this.context.scale(this.pixelDensity, this.pixelDensity);
+    this.context.scale(pixelDensity, pixelDensity);
     this.container.append(this.canvas);
 
     // default styling
@@ -57,11 +57,11 @@ export default function u5(sketch, element) {
 
     this.width = width;
     this.height = height;
-    this.canvas.width = this.width * this.pixelDensity;
-    this.canvas.height = this.height * this.pixelDensity;
+    this.canvas.width = this.width * pixelDensity;
+    this.canvas.height = this.height * pixelDensity;
     this.canvas.style.width = `${this.width}px`;
     this.canvas.style.height = `${this.height}px`;
-    this.context.scale(this.pixelDensity, this.pixelDensity);
+    this.context.scale(pixelDensity, pixelDensity);
 
     this.fill(fillStyle);
     this.stroke(strokeStyle);
