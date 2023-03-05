@@ -80,6 +80,21 @@ export default function u5(sketch, element) {
     isLooping = false;
   };
 
+  // transforms
+
+  this.rotate = function (r) {
+    this.context.rotate(r);
+  };
+
+  this.translate = function (x, y) {
+    this.context.translate(x, y);
+  };
+
+  this.scale = function (x, y) {
+    y = y || x;
+    this.context.scale(x, y);
+  };
+
   // drawing
 
   this.clear = function () {
@@ -264,7 +279,11 @@ export default function u5(sketch, element) {
     if (this.deltaTime > interval) {
       then = now - (this.deltaTime % interval);
       this.frameCount++;
+
+      this.context.save();
       this.draw();
+      this.context.restore();
+
       this.pmouseX = this.mouseX;
       this.pmouseY = this.mouseY;
     }

@@ -1,4 +1,5 @@
-[![npm version](https://badge.fury.io/js/u5js.svg)](https://badge.fury.io/js/u5js)
+![npm version](https://img.shields.io/npm/v/u5js)
+![bundle size](https://img.shields.io/bundlephobia/minzip/u5js)
 
 # u5.js
 
@@ -68,6 +69,12 @@ As such I have decided to give a try at building a library with the same API whi
 
 - `createCanvas()`
 - `resizeCanvas()`
+
+### Transform
+
+- `rotate()`
+- `translate()`
+- `scale()`
 
 ### Events - Mouse
 
