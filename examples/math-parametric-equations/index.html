@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"></script>
+  </head>
+  <body>
+    <span id="container1"></span>
+    <span id="container2"></span>
+    <script type="module">
+      import u5 from "../../index.js";
+      import sketch from "./sketch.js";
+
+      new u5(sketch, document.getElementById("container1"));
+      new p5(sketch, document.getElementById("container2"));
+    </script>
+  </body>
+</html>
