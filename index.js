@@ -3,6 +3,7 @@ export default function u5(sketch, element) {
 
   // internal state
 
+  let frameHandle = null;
   let hasMouseMoved = false;
   let hasSetupRun = false;
   let isLooping = false;
@@ -240,6 +241,7 @@ export default function u5(sketch, element) {
       return;
     }
 
+    window.cancelAnimationFrame(frameHandle);
     window.removeEventListener("resize", handleResize);
     window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("mousedown", handleMouseDown);
@@ -272,7 +274,7 @@ export default function u5(sketch, element) {
       return;
     }
 
-    window.requestAnimationFrame(animate);
+    frameHandle = window.requestAnimationFrame(animate);
     const now = performance.now();
     this.deltaTime = now - then;
     const interval = 1000 / this.fps;
