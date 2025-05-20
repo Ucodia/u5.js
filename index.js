@@ -12,7 +12,8 @@ export default function u5(sketch, element) {
   // default settings
 
   this.container = element;
-  this.canvas = null;
+  this.canvas = document.createElement("canvas");
+  this.container.append(this.canvas);
   this.context = null;
   this.width = 0;
   this.height = 0;
@@ -32,14 +33,12 @@ export default function u5(sketch, element) {
   this.createCanvas = function (width = 100, height = 100) {
     this.width = width;
     this.height = height;
-    this.canvas = document.createElement("canvas");
     this.canvas.width = this.width * pixelDensity;
     this.canvas.height = this.height * pixelDensity;
     this.canvas.style.width = `${this.width}px`;
     this.canvas.style.height = `${this.height}px`;
     this.context = this.canvas.getContext("2d");
     this.context.scale(pixelDensity, pixelDensity);
-    this.container.append(this.canvas);
 
     // default styling
     this.fill("white");
