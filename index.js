@@ -11,9 +11,7 @@ export default function u5(sketch, element) {
 
   // default settings
 
-  this.container = element;
-  this.canvas = document.createElement("canvas");
-  this.container.append(this.canvas);
+  this.canvas = null;
   this.context = null;
   this.width = 0;
   this.height = 0;
@@ -31,24 +29,23 @@ export default function u5(sketch, element) {
   // DOM
 
   this.createCanvas = function (width = 100, height = 100) {
+    if (this.canvas) {
+      this.canvas.remove();
+    }
     this.width = width;
     this.height = height;
+    this.canvas = document.createElement("canvas");
     this.canvas.width = this.width * pixelDensity;
     this.canvas.height = this.height * pixelDensity;
     this.canvas.style.width = `${this.width}px`;
     this.canvas.style.height = `${this.height}px`;
     this.context = this.canvas.getContext("2d");
     this.context.scale(pixelDensity, pixelDensity);
+    element.append(this.canvas);
 
     // default styling
     this.fill("white");
     this.stroke("black");
-
-    window.addEventListener("resize", handleResize);
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mousedown", handleMouseDown);
-    window.addEventListener("mouseup", handleMouseUp);
-    window.addEventListener("dblclick", handleDoubleClick);
   };
 
   this.resizeCanvas = function (width, height) {
@@ -236,17 +233,19 @@ export default function u5(sketch, element) {
   };
 
   this.remove = function () {
-    if (!this.canvas) {
-      return;
-    }
-
-    window.cancelAnimationFrame(frameHandle);
     window.removeEventListener("resize", handleResize);
     window.removeEventListener("mousemove", handleMouseMove);
     window.removeEventListener("mousedown", handleMouseDown);
     window.removeEventListener("mouseup", handleMouseUp);
     window.removeEventListener("dblclick", handleDoubleClick);
-    this.canvas.remove();
+
+    if (frameHandle) {
+      window.cancelAnimationFrame(frameHandle);
+    }
+
+    if (this.canvas) {
+      this.canvas.remove();
+    }
   };
 
   // animation
@@ -263,6 +262,13 @@ export default function u5(sketch, element) {
   if (typeof this.draw === "function") {
     isLooping = true;
   }
+
+  this.createCanvas(100, 100);
+  window.addEventListener("resize", handleResize);
+  window.addEventListener("mousemove", handleMouseMove);
+  window.addEventListener("mousedown", handleMouseDown);
+  window.addEventListener("mouseup", handleMouseUp);
+  window.addEventListener("dblclick", handleDoubleClick);
 
   this.setup();
   hasSetupRun = true;
